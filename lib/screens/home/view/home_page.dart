@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tonote/screens/note/note.dart';
 import 'package:tonote/screens/home/widgets/tab_button.dart';
+import 'package:tonote/screens/home/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -39,7 +41,7 @@ class HomePage extends StatelessWidget {
             children: [
               Container(),
               Container(),
-              Container(),
+              NotePage(),
             ],
           ),
         ),

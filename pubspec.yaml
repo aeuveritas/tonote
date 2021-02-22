@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  community_material_icon: ^5.4.55
 
 dev_dependencies:
   flutter_test:
