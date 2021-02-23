@@ -10,28 +10,21 @@ class HomePage extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            "ToNote",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
+          flexibleSpace: SafeArea(
+            minimum: EdgeInsets.all(8.0),
+            child: TabBar(
+              unselectedLabelColor: Colors.redAccent,
+              indicatorSize: TabBarIndicatorSize.label,
+              indicator: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.redAccent,
+              ),
+              tabs: [
+                TabButton(title: 'Calendar'),
+                TabButton(title: 'To Do'),
+                TabButton(title: 'Note'),
+              ],
             ),
-          ),
-          elevation: 0.0,
-          centerTitle: true,
-          bottom: TabBar(
-            unselectedLabelColor: Colors.redAccent,
-            indicatorSize: TabBarIndicatorSize.label,
-            indicator: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: Colors.redAccent,
-            ),
-            tabs: [
-              TabButton(title: 'Calendar'),
-              TabButton(title: 'To Do'),
-              TabButton(title: 'Note'),
-            ],
           ),
         ),
         body: Padding(
