@@ -67,9 +67,9 @@ class _VerticalSplitViewState extends State<VerticalSplitView> {
                 onPanUpdate: (DragUpdateDetails details) {
                   setState(() {
                     _ratio += details.delta.dx / _maxWidth;
-                    if (_ratio > 1)
-                      _ratio = 1;
-                    else if (_ratio < 0.0) _ratio = 0.0;
+                    if (_ratio > 0.9)
+                      _ratio = 0.9;
+                    else if (_ratio < 0.1) _ratio = 0.1;
                   });
                 },
               ),
