@@ -20,9 +20,9 @@ class HomePage extends StatelessWidget {
                 color: Colors.redAccent,
               ),
               tabs: [
+                TabButton(title: 'Note'),
                 TabButton(title: 'Calendar'),
                 TabButton(title: 'To Do'),
-                TabButton(title: 'Note'),
               ],
             ),
           ),
@@ -32,9 +32,9 @@ class HomePage extends StatelessWidget {
           child: TabBarView(
             physics: NeverScrollableScrollPhysics(),
             children: [
-              Container(),
-              Container(),
               NotePage(),
+              Container(),
+              Container(),
             ],
           ),
         ),
