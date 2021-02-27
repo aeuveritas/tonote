@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tonote/screens/note/note.dart';
 import 'package:tonote/screens/home/widgets/tab_button.dart';
 import 'package:tonote/screens/home/widgets/widgets.dart';
+import 'package:tonote/utils/consts.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -10,12 +11,12 @@ class HomePage extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.redAccent,
+          backgroundColor: THEME_COLOR,
           elevation: 0,
           flexibleSpace: SafeArea(
             minimum: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0),
             child: TabBar(
-              labelColor: Colors.redAccent,
+              labelColor: THEME_COLOR,
               unselectedLabelColor: Colors.white,
               indicatorSize: TabBarIndicatorSize.label,
               indicator: BoxDecoration(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tonote/utils/consts.dart';
 
 class DateButton extends StatelessWidget {
   final DateTime date;
@@ -11,7 +12,7 @@ class DateButton extends StatelessWidget {
       margin: const EdgeInsets.all(2.0),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.black,
+          primary: THEME_COLOR,
         ),
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
