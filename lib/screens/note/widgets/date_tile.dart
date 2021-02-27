@@ -8,21 +8,24 @@ class DateTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          primary: THEME_COLOR,
-        ),
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Text(
-            title,
-            style: TextStyle(
-              fontSize: 20.0,
+    return Padding(
+      padding: const EdgeInsets.only(right: 5.0),
+      child: Card(
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: THEME_COLOR,
+          ),
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 20.0,
+              ),
             ),
           ),
+          onPressed: () {},
         ),
-        onPressed: () {},
       ),
     );
   }

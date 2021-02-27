@@ -7,21 +7,27 @@ class NoteTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: THEME_COLOR,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: ListTile(
-        title: Text(
-          title,
-          style: TextStyle(
-            fontSize: 20.0,
-            color: Colors.white,
+    return Padding(
+      padding: const EdgeInsets.only(right: 5.0),
+      child: Card(
+        color: THEME_COLOR,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(10),
+            topRight: Radius.circular(10),
           ),
-          textAlign: TextAlign.center,
         ),
-        onTap: () {},
+        child: ListTile(
+          title: Text(
+            title,
+            style: TextStyle(
+              fontSize: 20.0,
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          onTap: () {},
+        ),
       ),
     );
   }
