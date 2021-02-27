@@ -8,8 +8,7 @@ class DateTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(2.0),
+    return Card(
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           primary: THEME_COLOR,
