@@ -10,14 +10,19 @@ class HomePage extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.redAccent,
+          elevation: 0,
           flexibleSpace: SafeArea(
-            minimum: EdgeInsets.all(8.0),
+            minimum: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0),
             child: TabBar(
-              unselectedLabelColor: Colors.redAccent,
+              labelColor: Colors.redAccent,
+              unselectedLabelColor: Colors.white,
               indicatorSize: TabBarIndicatorSize.label,
               indicator: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: Colors.redAccent,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10)),
+                color: Colors.white,
               ),
               tabs: [
                 TabButton(title: 'Note'),

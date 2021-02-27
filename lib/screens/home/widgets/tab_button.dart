@@ -8,21 +8,12 @@ class TabButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Tab(
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          border: Border.all(
-            color: Colors.redAccent,
-            width: 1,
-          ),
-        ),
-        child: Align(
-          alignment: Alignment.center,
-          child: Text(
-            "$title",
-            style: TextStyle(
-              fontSize: 18.0,
-            ),
+      child: Align(
+        alignment: Alignment.center,
+        child: Text(
+          "$title",
+          style: TextStyle(
+            fontSize: 18.0,
           ),
         ),
       ),
