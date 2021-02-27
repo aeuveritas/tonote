@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tonote/utils/consts.dart';
 
-class DateButton extends StatelessWidget {
-  final DateTime date;
-
-  DateButton({@required this.date}) : assert(date != null);
+class NoteTile extends StatelessWidget {
+  final String title;
+  NoteTile({@required this.title}) : assert(title != null);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class DateButton extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
-            '${date.month}/${date.day}/${date.year}',
+            title,
             style: TextStyle(
               fontSize: 20.0,
             ),

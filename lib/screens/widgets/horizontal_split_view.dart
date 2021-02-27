@@ -5,10 +5,15 @@ class HorizontalSplitView extends StatefulWidget {
   final Widget top;
   final Widget bottom;
   final double ratio;
+  final bool isFixed;
 
-  const HorizontalSplitView(
-      {Key key, @required this.top, @required this.bottom, this.ratio = 0.5})
-      : assert(top != null),
+  const HorizontalSplitView({
+    Key key,
+    @required this.top,
+    @required this.bottom,
+    this.ratio = 0.5,
+    this.isFixed = false,
+  })  : assert(top != null),
         assert(bottom != null),
         assert(ratio >= 0),
         assert(ratio <= 1),
@@ -60,19 +65,24 @@ class _HorizontalSplitViewState extends State<HorizontalSplitView> {
                 child: SizedBox(
                   width: constraints.maxWidth,
                   height: _dividerHeight,
-                  child: RotationTransition(
-                    child: Icon(CommunityMaterialIcons.drag_vertical_variant),
-                    turns: AlwaysStoppedAnimation(0.25),
-                  ),
+                  child: widget.isFixed
+                      ? Container()
+                      : RotationTransition(
+                          child: Icon(
+                              CommunityMaterialIcons.drag_vertical_variant),
+                          turns: AlwaysStoppedAnimation(0.25),
+                        ),
                 ),
-                onPanUpdate: (DragUpdateDetails details) {
-                  setState(() {
-                    _ratio += details.delta.dy / _maxHeight;
-                    if (_ratio > 0.9)
-                      _ratio = 0.9;
-                    else if (_ratio < 0.1) _ratio = 0.1;
-                  });
-                },
+                onPanUpdate: widget.isFixed
+                    ? null
+                    : (DragUpdateDetails details) {
+                        setState(() {
+                          _ratio += details.delta.dy / _maxHeight;
+                          if (_ratio > 0.9)
+                            _ratio = 0.9;
+                          else if (_ratio < 0.1) _ratio = 0.1;
+                        });
+                      },
               ),
               SizedBox(
                 height: _height2,
