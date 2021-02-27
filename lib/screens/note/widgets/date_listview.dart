@@ -30,7 +30,6 @@ class _DateListViewState extends State<DateListView> {
   Widget build(BuildContext context) {
     DateTime today = DateTime.now();
     return Container(
-      height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black),
       ),
