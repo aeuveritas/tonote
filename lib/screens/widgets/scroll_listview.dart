@@ -80,8 +80,11 @@ class _ScrollListViewState extends State<ScrollListView> {
   Stream<double> _updateContainerHeight() async* {
     while (true) {
       await Future.delayed(Duration(milliseconds: 100));
-      final RenderBox renderBox =
-          _keyContainer.currentContext.findRenderObject();
+      final BuildContext context = _keyContainer.currentContext;
+      if (context == null) {
+        break;
+      }
+      final RenderBox renderBox = context.findRenderObject();
       final height = renderBox.size.height;
       if (height == _containerHeight) {
         continue;
