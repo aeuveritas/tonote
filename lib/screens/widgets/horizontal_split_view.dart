@@ -1,4 +1,4 @@
-import 'package:community_material_icon/community_material_icon.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalSplitView extends StatefulWidget {
@@ -8,9 +8,9 @@ class HorizontalSplitView extends StatefulWidget {
   final bool isFixed;
 
   const HorizontalSplitView({
-    Key key,
-    @required this.top,
-    @required this.bottom,
+    Key? key,
+    required this.top,
+    required this.bottom,
     this.ratio = 0.5,
     this.isFixed = false,
   })  : assert(top != null),
@@ -27,12 +27,12 @@ class _HorizontalSplitViewState extends State<HorizontalSplitView> {
   final _dividerHeight = 16.0;
 
   //from 0-1
-  double _ratio;
-  double _maxHeight;
+  late double _ratio;
+  double? _maxHeight;
 
-  get _height1 => _ratio * _maxHeight;
+  get _height1 => _ratio * _maxHeight!;
 
-  get _height2 => (1 - _ratio) * _maxHeight;
+  get _height2 => (1 - _ratio) * _maxHeight!;
 
   @override
   void initState() {
@@ -68,8 +68,7 @@ class _HorizontalSplitViewState extends State<HorizontalSplitView> {
                   child: widget.isFixed
                       ? Container()
                       : RotationTransition(
-                          child: Icon(
-                              CommunityMaterialIcons.drag_vertical_variant),
+                          child: Icon(FontAwesomeIcons.gripLinesVertical),
                           turns: AlwaysStoppedAnimation(0.25),
                         ),
                 ),
@@ -77,7 +76,7 @@ class _HorizontalSplitViewState extends State<HorizontalSplitView> {
                     ? null
                     : (DragUpdateDetails details) {
                         setState(() {
-                          _ratio += details.delta.dy / _maxHeight;
+                          _ratio += details.delta.dy / _maxHeight!;
                           if (_ratio > 0.9)
                             _ratio = 0.9;
                           else if (_ratio < 0.1) _ratio = 0.1;

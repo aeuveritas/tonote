@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tonote/screens/note/widgets/widgets.dart';
-import 'package:webscrollbar/webscrollbar.dart';
 
 enum Tile { date, note }
 
@@ -9,9 +8,9 @@ class ScrollListView extends StatefulWidget {
   final Tile tile;
 
   const ScrollListView({
-    Key key,
-    @required this.titles,
-    @required this.tile,
+    Key? key,
+    required this.titles,
+    required this.tile,
   })  : assert(titles != null),
         assert(tile != null),
         super(key: key);
@@ -21,9 +20,9 @@ class ScrollListView extends StatefulWidget {
 }
 
 class _ScrollListViewState extends State<ScrollListView> {
-  ScrollController _controller;
-  GlobalKey _keyContainer;
-  double _containerHeight;
+  ScrollController? _controller;
+  GlobalKey? _keyContainer;
+  double? _containerHeight;
 
   @override
   void initState() {
@@ -36,7 +35,7 @@ class _ScrollListViewState extends State<ScrollListView> {
   @override
   void dispose() {
     super.dispose();
-    _controller.dispose();
+    _controller!.dispose();
   }
 
   @override
@@ -46,52 +45,25 @@ class _ScrollListViewState extends State<ScrollListView> {
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black),
       ),
-      child: StreamBuilder(
-        stream: _updateContainerHeight(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return WebScrollBar(
-              scrollbarColor: Colors.grey[100],
-              scrollThumbColor: Colors.grey,
-              visibleHeight: snapshot.data,
-              controller: _controller,
-              child: ListView.builder(
-                controller: _controller,
-                itemCount: widget.titles.length,
-                itemBuilder: (context, index) {
-                  switch (widget.tile) {
-                    case Tile.date:
-                      return DateTile(title: widget.titles[index]);
-                    case Tile.note:
-                      return NoteTile(title: widget.titles[index]);
-                    default:
-                      return Container();
-                  }
-                },
-              ),
-            );
-          }
-          return Container();
-        },
+      child: Scrollbar(
+        isAlwaysShown: true,
+        showTrackOnHover: true,
+        controller: _controller,
+        child: ListView.builder(
+          controller: _controller,
+          itemCount: widget.titles.length,
+          itemBuilder: (context, index) {
+            switch (widget.tile) {
+              case Tile.date:
+                return DateTile(title: widget.titles[index]);
+              case Tile.note:
+                return NoteTile(title: widget.titles[index]);
+              default:
+                return Container();
+            }
+          },
+        ),
       ),
     );
-  }
-
-  Stream<double> _updateContainerHeight() async* {
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 100));
-      final BuildContext context = _keyContainer.currentContext;
-      if (context == null) {
-        break;
-      }
-      final RenderBox renderBox = context.findRenderObject();
-      final height = renderBox.size.height;
-      if (height == _containerHeight) {
-        continue;
-      } else {
-        _containerHeight = height;
-        yield height;
-      }
-    }
   }
 }

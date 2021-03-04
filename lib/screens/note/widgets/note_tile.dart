@@ -3,7 +3,7 @@ import 'package:tonote/utils/consts.dart';
 
 class NoteTile extends StatelessWidget {
   final String title;
-  NoteTile({@required this.title}) : assert(title != null);
+  NoteTile({required this.title}) : assert(title != null);
 
   @override
   Widget build(BuildContext context) {

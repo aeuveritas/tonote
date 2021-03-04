@@ -4,7 +4,7 @@ import 'package:tonote/utils/consts.dart';
 class DateTile extends StatelessWidget {
   final String title;
 
-  DateTile({@required this.title}) : assert(title != null);
+  DateTile({required this.title}) : assert(title != null);
 
   @override
   Widget build(BuildContext context) {

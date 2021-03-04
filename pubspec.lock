@@ -43,13 +43,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
-  community_material_icon:
-    dependency: "direct main"
-    description:
-      name: community_material_icon
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.8.55"
   fake_async:
     dependency: transitive
     description:
@@ -67,6 +60,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  font_awesome_flutter:
+    dependency: "direct main"
+    description:
+      name: font_awesome_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "9.0.0-nullsafety"
   matcher:
     dependency: transitive
     description:
@@ -93,13 +93,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
-  smooth_scroll_web:
-    dependency: transitive
-    description:
-      name: smooth_scroll_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.4"
   source_span:
     dependency: transitive
     description:
@@ -156,13 +149,5 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
-  webscrollbar:
-    dependency: "direct main"
-    description:
-      name: webscrollbar
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.2"
 sdks:
-  dart: ">=2.12.0-0.0 <3.0.0"
-  flutter: ">=1.17.0"
+  dart: ">=2.12.0 <3.0.0"

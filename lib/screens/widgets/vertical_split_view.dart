@@ -1,4 +1,4 @@
-import 'package:community_material_icon/community_material_icon.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 
 class VerticalSplitView extends StatefulWidget {
@@ -8,9 +8,9 @@ class VerticalSplitView extends StatefulWidget {
   final bool isFixed;
 
   const VerticalSplitView({
-    Key key,
-    @required this.left,
-    @required this.right,
+    Key? key,
+    required this.left,
+    required this.right,
     this.ratio = 0.5,
     this.isFixed = false,
   })  : assert(left != null),
@@ -27,12 +27,12 @@ class _VerticalSplitViewState extends State<VerticalSplitView> {
   final _dividerWidth = 16.0;
 
   //from 0-1
-  double _ratio;
-  double _maxWidth;
+  late double _ratio;
+  double? _maxWidth;
 
-  get _width1 => _ratio * _maxWidth;
+  get _width1 => _ratio * _maxWidth!;
 
-  get _width2 => (1 - _ratio) * _maxWidth;
+  get _width2 => (1 - _ratio) * _maxWidth!;
 
   @override
   void initState() {
@@ -67,8 +67,7 @@ class _VerticalSplitViewState extends State<VerticalSplitView> {
                   child: widget.isFixed
                       ? Container()
                       : RotationTransition(
-                          child: Icon(
-                              CommunityMaterialIcons.drag_horizontal_variant),
+                          child: Icon(FontAwesomeIcons.gripLines),
                           turns: AlwaysStoppedAnimation(0.25),
                         ),
                 ),
@@ -76,7 +75,7 @@ class _VerticalSplitViewState extends State<VerticalSplitView> {
                     ? null
                     : (DragUpdateDetails details) {
                         setState(() {
-                          _ratio += details.delta.dx / _maxWidth;
+                          _ratio += details.delta.dx / _maxWidth!;
                           if (_ratio > 0.9)
                             _ratio = 0.9;
                           else if (_ratio < 0.1) _ratio = 0.1;
