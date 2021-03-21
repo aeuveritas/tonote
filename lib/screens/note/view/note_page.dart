@@ -11,18 +11,16 @@ class NotePage extends StatelessWidget {
       child: VerticalSplitView(
         ratio: 0.3,
         left: DateListView(),
-        right: Container(
-          child: HorizontalSplitView(
-            ratio: 0.3,
-            top: NoteListView(),
-            bottom: Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black),
-              ),
-              child: Center(
-                child: FlutterLogo(
-                  size: 256,
-                ),
+        right: HorizontalSplitView(
+          ratio: 0.3,
+          top: NoteListView(),
+          bottom: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+            ),
+            child: Center(
+              child: FlutterLogo(
+                size: 256,
               ),
             ),
           ),

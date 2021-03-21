@@ -11,7 +11,7 @@ class ScrollListView extends StatefulWidget {
     Key? key,
     required this.titles,
     required this.tile,
-  })  : assert(titles != null),
+  })   : assert(titles != null),
         assert(tile != null),
         super(key: key);
 
