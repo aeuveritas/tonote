@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tonote/screens/note/widgets/date_tile.dart';
 import 'package:tonote/screens/widgets/widgets.dart';
 
-class DateListView extends StatelessWidget {
+class DateScrollBarList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DateTime today = DateTime.now();
@@ -9,12 +10,14 @@ class DateListView extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black),
       ),
-      child: ScrollListView(
-        titles: List.generate(30, (index) {
+      child: ScraollBarList(
+        tiles: List.generate(30, (index) {
           final day = today.subtract(Duration(days: index));
-          return '${day.month}/${day.day}/${day.year}';
+          return DateTile(
+            title: '${day.month}/${day.day}/${day.year}',
+            onTap: () {},
+          );
         }),
-        tile: Tile.date,
       ),
     );
   }

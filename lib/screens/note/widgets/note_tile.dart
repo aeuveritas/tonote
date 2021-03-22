@@ -3,7 +3,14 @@ import 'package:tonote/utils/consts.dart';
 
 class NoteTile extends StatelessWidget {
   final String title;
-  NoteTile({required this.title}) : assert(title != null);
+  final Function()? onTap;
+  final Icon? _leadingIcon;
+
+  NoteTile({
+    required this.title,
+    required this.onTap,
+    Icon? leadingIcon,
+  }) : _leadingIcon = leadingIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +25,16 @@ class NoteTile extends StatelessWidget {
           ),
         ),
         child: ListTile(
+          leading: _leadingIcon,
           title: Text(
             title,
             style: TextStyle(
               fontSize: 20.0,
               color: Colors.white,
             ),
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.start,
           ),
-          onTap: () {},
+          onTap: onTap,
         ),
       ),
     );

@@ -3,8 +3,12 @@ import 'package:tonote/utils/consts.dart';
 
 class DateTile extends StatelessWidget {
   final String title;
+  final Function()? onTap;
 
-  DateTile({required this.title}) : assert(title != null);
+  DateTile({
+    required this.title,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {

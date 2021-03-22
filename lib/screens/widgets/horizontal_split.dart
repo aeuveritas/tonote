@@ -1,29 +1,27 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 
-class HorizontalSplitView extends StatefulWidget {
+class HorizontalSplit extends StatefulWidget {
   final Widget top;
   final Widget bottom;
   final double ratio;
   final bool isFixed;
 
-  const HorizontalSplitView({
+  const HorizontalSplit({
     Key? key,
     required this.top,
     required this.bottom,
     this.ratio = 0.5,
     this.isFixed = false,
-  })  : assert(top != null),
-        assert(bottom != null),
-        assert(ratio >= 0),
+  })  : assert(ratio >= 0),
         assert(ratio <= 1),
         super(key: key);
 
   @override
-  _HorizontalSplitViewState createState() => _HorizontalSplitViewState();
+  _HorizontalSplitState createState() => _HorizontalSplitState();
 }
 
-class _HorizontalSplitViewState extends State<HorizontalSplitView> {
+class _HorizontalSplitState extends State<HorizontalSplit> {
   final _dividerHeight = 16.0;
 
   //from 0-1

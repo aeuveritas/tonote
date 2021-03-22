@@ -3,17 +3,17 @@ import 'package:tonote/screens/widgets/widgets.dart';
 
 import 'package:tonote/screens/note/widgets/widgets.dart';
 
-class NotePage extends StatelessWidget {
+class NoteView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: VerticalSplitView(
+      child: VerticalSplit(
         ratio: 0.3,
-        left: DateListView(),
-        right: HorizontalSplitView(
+        left: DateScrollBarList(),
+        right: HorizontalSplit(
           ratio: 0.3,
-          top: NoteListView(),
+          top: NoteScrollBarList(),
           bottom: Container(
             decoration: BoxDecoration(
               border: Border.all(color: Colors.black),
