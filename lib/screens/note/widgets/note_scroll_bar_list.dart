@@ -40,7 +40,7 @@ class NoteScrollBarList extends StatelessWidget {
     return PageRouteBuilder(
       pageBuilder: (BuildContext context, Animation<double> animation,
               Animation<double> secondaryAnimation) =>
-          NoteInProgress(),
+          NoteInProgressContainer(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(0.0, 1.0);
         final end = Offset.zero;
