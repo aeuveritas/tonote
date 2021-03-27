@@ -16,9 +16,9 @@ class NoteView extends StatelessWidget {
           top: NoteScrollBarList(),
           bottom: Container(
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.black),
+              border: Border.all(),
             ),
-            child: Center(
+            child: const Center(
               child: FlutterLogo(
                 size: 256,
               ),

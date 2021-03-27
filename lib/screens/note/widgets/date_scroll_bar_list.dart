@@ -5,10 +5,10 @@ import 'package:tonote/screens/widgets/widgets.dart';
 class DateScrollBarList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    DateTime today = DateTime.now();
+    final DateTime today = DateTime.now();
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.black),
+        border: Border.all(),
       ),
       child: ScraollBarList(
         tiles: List.generate(30, (index) {

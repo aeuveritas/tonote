@@ -17,7 +17,7 @@ class _ScraollBarListState extends State<ScraollBarList> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.black),
+        border: Border.all(),
       ),
       child: Scrollbar(
         isAlwaysShown: true,

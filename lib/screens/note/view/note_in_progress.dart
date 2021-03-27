@@ -6,7 +6,7 @@ class NoteInProgress extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TextField(
+        title: const TextField(
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             hintText: 'Type title',
@@ -18,15 +18,15 @@ class NoteInProgress extends StatelessWidget {
         ),
         actions: [
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: Colors.red,
               ),
-              child: Text('Save'),
               onPressed: () {
                 Navigator.pop(context);
               },
+              child: const Text('Save'),
             ),
           ),
         ],
@@ -34,13 +34,12 @@ class NoteInProgress extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: VerticalSplit(
-          ratio: 0.5,
           left: Container(
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.black),
+              border: Border.all(),
             ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
               child: Scrollbar(
                 isAlwaysShown: true,
                 showTrackOnHover: true,
@@ -55,7 +54,7 @@ class NoteInProgress extends StatelessWidget {
           ),
           right: Container(
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.black),
+              border: Border.all(),
             ),
             child: Scrollbar(
               isAlwaysShown: true,

@@ -6,7 +6,7 @@ class NoteTile extends StatelessWidget {
   final Function()? onTap;
   final Icon? _leadingIcon;
 
-  NoteTile({
+  const NoteTile({
     required this.title,
     required this.onTap,
     Icon? leadingIcon,
@@ -18,7 +18,7 @@ class NoteTile extends StatelessWidget {
       padding: const EdgeInsets.only(right: 5.0),
       child: Card(
         color: THEME_COLOR,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(10),
             topRight: Radius.circular(10),
@@ -28,7 +28,7 @@ class NoteTile extends StatelessWidget {
           leading: _leadingIcon,
           title: Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20.0,
               color: Colors.white,
             ),

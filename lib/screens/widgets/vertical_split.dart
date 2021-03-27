@@ -26,11 +26,11 @@ class _VerticalSplitState extends State<VerticalSplit> {
 
   //from 0-1
   late double _ratio;
-  double? _maxWidth;
+  double _maxWidth = 0;
 
-  get _width1 => _ratio * _maxWidth!;
+  double get _width1 => _ratio * _maxWidth;
 
-  get _width2 => (1 - _ratio) * _maxWidth!;
+  double get _width2 => (1 - _ratio) * _maxWidth;
 
   @override
   void initState() {
@@ -44,7 +44,9 @@ class _VerticalSplitState extends State<VerticalSplit> {
       builder: (BuildContext context, BoxConstraints constraints) {
         assert(_ratio <= 1);
         assert(_ratio >= 0);
-        if (_maxWidth == null) _maxWidth = constraints.maxWidth - _dividerWidth;
+        if (_maxWidth == 0) {
+          _maxWidth = constraints.maxWidth - _dividerWidth;
+        }
         if (_maxWidth != constraints.maxWidth) {
           _maxWidth = constraints.maxWidth - _dividerWidth;
         }
@@ -59,26 +61,26 @@ class _VerticalSplitState extends State<VerticalSplit> {
               ),
               GestureDetector(
                 behavior: HitTestBehavior.translucent,
+                onPanUpdate: widget.isFixed
+                    ? null
+                    : (DragUpdateDetails details) {
+                        setState(() {
+                          _ratio += details.delta.dx / _maxWidth;
+                          if (_ratio > 0.9) {
+                            _ratio = 0.9;
+                          } else if (_ratio < 0.1) _ratio = 0.1;
+                        });
+                      },
                 child: SizedBox(
                   width: _dividerWidth,
                   height: constraints.maxHeight,
                   child: widget.isFixed
                       ? Container()
-                      : RotationTransition(
-                          child: Icon(FontAwesomeIcons.gripLines),
+                      : const RotationTransition(
                           turns: AlwaysStoppedAnimation(0.25),
+                          child: Icon(FontAwesomeIcons.gripLines),
                         ),
                 ),
-                onPanUpdate: widget.isFixed
-                    ? null
-                    : (DragUpdateDetails details) {
-                        setState(() {
-                          _ratio += details.delta.dx / _maxWidth!;
-                          if (_ratio > 0.9)
-                            _ratio = 0.9;
-                          else if (_ratio < 0.1) _ratio = 0.1;
-                        });
-                      },
               ),
               SizedBox(
                 width: _width2,

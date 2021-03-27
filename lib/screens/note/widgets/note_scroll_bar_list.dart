@@ -8,14 +8,14 @@ class NoteScrollBarList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.black),
+        border: Border.all(),
       ),
       child: ScraollBarList(
         tiles: List.generate(30, (int index) {
           if (index == 0) {
             return NoteTile(
               title: 'Create New Note',
-              leadingIcon: Icon(
+              leadingIcon: const Icon(
                 Icons.add,
                 color: Colors.white,
               ),
@@ -42,11 +42,11 @@ class NoteScrollBarList extends StatelessWidget {
               Animation<double> secondaryAnimation) =>
           NoteInProgress(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin = Offset(0.0, 1.0);
-        var end = Offset.zero;
-        var curve = Curves.ease;
+        const begin = Offset(0.0, 1.0);
+        final end = Offset.zero;
+        final curve = Curves.ease;
 
-        var tween =
+        final tween =
             Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
         return SlideTransition(

@@ -5,7 +5,7 @@ class DateTile extends StatelessWidget {
   final String title;
   final Function()? onTap;
 
-  DateTile({
+  const DateTile({
     required this.title,
     required this.onTap,
   });
@@ -19,16 +19,16 @@ class DateTile extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             primary: THEME_COLOR,
           ),
+          onPressed: () {},
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20.0,
               ),
             ),
           ),
-          onPressed: () {},
         ),
       ),
     );

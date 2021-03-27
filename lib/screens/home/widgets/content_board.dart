@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:tonote/screens/note/note.dart';
 
 class ContentBoard extends StatelessWidget {
-  final _selectedBoard;
+  final int _selectedBoard;
 
-  const ContentBoard({Key? key, required selectedBoard})
-      : assert(selectedBoard != null),
-        _selectedBoard = selectedBoard,
+  const ContentBoard({Key? key, required int selectedBoard})
+      : _selectedBoard = selectedBoard,
         super(key: key);
 
   @override
@@ -23,7 +22,7 @@ class ContentBoard extends StatelessWidget {
         board = Container();
         break;
       default:
-        board = Center(
+        board = const Center(
           child: CircularProgressIndicator(),
         );
     }

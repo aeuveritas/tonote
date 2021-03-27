@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
               });
             },
             labelType: NavigationRailLabelType.selected,
-            destinations: [
+            destinations: const [
               NavigationRailDestination(
                 icon: Icon(Icons.favorite_border),
                 selectedIcon: Icon(Icons.favorite),
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          VerticalDivider(
+          const VerticalDivider(
             thickness: 1,
             width: 1,
           ),
