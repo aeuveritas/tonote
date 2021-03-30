@@ -105,11 +105,12 @@ class _NoteInProgressState extends State<NoteInProgress> {
             ),
             right: BlocBuilder<UpdaterBloc, UpdaterState>(
               builder: (context, state) {
+                // TODO: Select one of flutter_web, easy_web_view or simple_html_css
+                // TODO: CSS will be a class or map, and it will be given to HTML widget.
                 final TextSpan textSpan = HTML.toTextSpan(
                   context,
                   state.htmlContent,
                 );
-                // TODO: CSS will be a class or map, and it will be given to HTML widget.
                 return Container(
                   height: double.infinity,
                   decoration: BoxDecoration(
