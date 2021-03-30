@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_html/flutter_html.dart';
-import 'package:linked_scroll_controller/linked_scroll_controller.dart';
+import 'package:simple_html_css/simple_html_css.dart';
 import 'package:tonote/screens/note/bloc/updater_bloc.dart';
 import 'package:tonote/screens/widgets/widgets.dart';
 
@@ -84,6 +83,7 @@ class _NoteInProgressState extends State<NoteInProgress> {
                 }
               },
               child: Container(
+                // height: double.infinity,
                 decoration: BoxDecoration(
                   border: Border.all(),
                 ),
@@ -105,7 +105,13 @@ class _NoteInProgressState extends State<NoteInProgress> {
             ),
             right: BlocBuilder<UpdaterBloc, UpdaterState>(
               builder: (context, state) {
+                final TextSpan textSpan = HTML.toTextSpan(
+                  context,
+                  state.htmlContent,
+                );
+                // TODO: CSS will be a class or map, and it will be given to HTML widget.
                 return Container(
+                  height: double.infinity,
                   decoration: BoxDecoration(
                     border: Border.all(),
                   ),
@@ -113,9 +119,9 @@ class _NoteInProgressState extends State<NoteInProgress> {
                     isAlwaysShown: true,
                     showTrackOnHover: true,
                     child: SingleChildScrollView(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Html(
-                        data: state.htmlContent,
+                      padding: const EdgeInsets.all(8.0),
+                      child: RichText(
+                        text: textSpan,
                       ),
                     ),
                   ),
